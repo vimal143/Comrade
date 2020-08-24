@@ -2,6 +2,7 @@ package com.vimal.commrade;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -52,17 +53,18 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
 
 
-        name=(TextView) findViewById(R.id.MainName);
-        loc=(TextView)findViewById(R.id.Location) ;
+        name=findViewById(R.id.MainName);
+       // loc=(TextView)findViewById(R.id.Location) ;
         SessionManager sessionManager=new SessionManager(this);
         HashMap<String,String> userDetails=sessionManager.getUserDetailsFromSession();
         FullName=userDetails.get(SessionManager.KEY_NAME);
         Mobile=userDetails.get(SessionManager.KEY_MOBILE);
         Gender=userDetails.get(SessionManager.KEY_GENDER);
-        Toast.makeText(this,FullName, Toast.LENGTH_SHORT).show();
-        name.setText(FullName+"\n"+Mobile+"\n"+Gender);
+        Toast.makeText(this,"Logged in as "+FullName, Toast.LENGTH_SHORT).show();
+       name.setText("Hello"+" "+FullName);
 
     }
+
     public void logoutbtn(View view){
         SessionManager sessionManager=new SessionManager(this);
         sessionManager.Logout();
@@ -115,4 +117,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
 
     }
+
+
 }
