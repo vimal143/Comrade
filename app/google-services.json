@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "587274952749",
+    "firebase_url": "https://commrade-1a340.firebaseio.com",
+    "project_id": "commrade-1a340",
+    "storage_bucket": "commrade-1a340.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587274952749:android:d0188da3d920ee5bcd98a4",
+        "android_client_info": {
+          "package_name": "com.vimal.commrade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587274952749-2ldodr1b6epg2n15b1ogvtd7vrtt4u1l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vimal.commrade",
+            "certificate_hash": "0e1aef23f07ba1dd24f113d1c9a7400f3a5955a0"
+          }
+        },
+        {
+          "client_id": "587274952749-bukdu60nis6cf12utk81s126e7q9hjrn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArWgi6DL0J9Sy1aYM9gDwE8jRShLNwnJ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587274952749-bukdu60nis6cf12utk81s126e7q9hjrn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
