@@ -46,7 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     void addFamilyMember(String name,String relation,String mobile){
-        Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put(COLUMN_NAME,name);
@@ -57,7 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(context, "Added Succesfully", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Member Added Succesfully", Toast.LENGTH_SHORT).show();
         }
         db.close();
 

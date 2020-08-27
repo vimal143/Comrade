@@ -2,6 +2,7 @@ package com.vimal.commrade;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -12,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -56,7 +58,14 @@ public class Signup extends AppCompatActivity {
     public void redirectToOtp(View view) {
 
         if (!isConnected(this)) {
-            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            AlertDialog dialog = new AlertDialog.Builder(Signup.this)
+                    .setTitle(Html.fromHtml("<font color='#2147F2'>Error</font>"))
+                    .setMessage(Html.fromHtml("<font color='#2147F2'>No Internet Connection</font>"))
+                    .setNegativeButton("Ok", null).show();
+            Button buttonNegative = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+            buttonNegative.setTextColor(ContextCompat.getColor(Signup.this, R.color.colorPrimary));
+            return;
         }
         if (!validatefullName() && !validateMobileNumber()) {
             return;
@@ -75,7 +84,13 @@ public class Signup extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     progressBarSignup.setVisibility(View.GONE);
-                    Toast.makeText(Signup.this, "User Already Exist", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(Signup.this, "User Already Exist", Toast.LENGTH_SHORT).show();
+                    AlertDialog dialog = new AlertDialog.Builder(Signup.this)
+                            .setTitle(Html.fromHtml("<font color='#2147F2'>Error</font>"))
+                            .setMessage(Html.fromHtml("<font color='#2147F2'>User Already Exist</font>"))
+                            .setNegativeButton("Ok", null).show();
+                    Button buttonNegative = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                    buttonNegative.setTextColor(ContextCompat.getColor(Signup.this, R.color.colorPrimary));
                 } else {
                     Intent otp = new Intent(Signup.this, otpVerification.class);
                     otp.putExtra("name", FullName);
@@ -83,6 +98,7 @@ public class Signup extends AppCompatActivity {
                     otp.putExtra("gender", _Gender);
                     otp.putExtra("flag", "SignUp");
                     startActivity(otp);
+                    finish();
                 }
             }
 

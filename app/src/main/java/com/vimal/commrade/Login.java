@@ -2,15 +2,20 @@ package com.vimal.commrade;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -46,7 +51,14 @@ public class Login extends AppCompatActivity {
 
 
         if (!isConnected(this)) {
-            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "No Internet Connection", Toast.LENGTH_SHORT).show();
+            AlertDialog dialog = new AlertDialog.Builder(Login.this)
+                    .setTitle(Html.fromHtml("<font color='#2147F2'>Error</font>"))
+                    .setMessage(Html.fromHtml("<font color='#2147F2'>No Internet Connection</font>"))
+                    .setNegativeButton("Ok", null).show();
+            Button buttonNegative = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+            buttonNegative.setTextColor(ContextCompat.getColor(Login.this, R.color.colorPrimary));
+            return;
         }
         if (!validateMobileNumber()) {
             return;
@@ -66,7 +78,13 @@ public class Login extends AppCompatActivity {
                     startActivity(otp);
                 } else {
                     progressbar.setVisibility(View.GONE);
-                    Toast.makeText(Login.this, "User Does not Exist", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(Login.this, "User Does not Exist", Toast.LENGTH_SHORT).show();
+                    AlertDialog dialog = new AlertDialog.Builder(Login.this)
+                            .setTitle(Html.fromHtml("<font color='#2147F2'>Error</font>"))
+                            .setMessage(Html.fromHtml("<font color='#2147F2'>User Does not Exist</font>"))
+                            .setNegativeButton("Ok", null).show();
+                    Button buttonNegative = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+                    buttonNegative.setTextColor(ContextCompat.getColor(Login.this, R.color.colorPrimary));
 
                 }
             }
