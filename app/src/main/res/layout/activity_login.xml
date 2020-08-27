@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradientbg"
-    android:padding="30dp"
+    android:padding="20dp"
     tools:context=".Login">
 
     <LinearLayout
@@ -30,50 +30,70 @@
             android:textSize="36sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical" />
+            android:layout_marginTop="10dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/mobileNumberLogin"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:hint="@string/mobile_number"
-            android:textColorHint="#000000"
-            app:boxStrokeColor="#000000"
-            app:boxStrokeWidthFocused="2dp"
-            app:endIconMode="clear_text"
-            app:endIconTint="#030505"
-            app:hintTextColor="#000000"
-            app:startIconDrawable="@drawable/ic_baseline_phone_24"
-
-            app:startIconTint="#080B0A">
-
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mobileNumberLogin"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="phone" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/mobile_number"
+                android:textColorHint="#000000"
+                app:boxStrokeColor="#000000"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="#030505"
+                app:hintTextColor="#000000"
+                app:startIconDrawable="@drawable/ic_baseline_phone_24"
+
+                app:startIconTint="#080B0A">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="phone" />
 
 
-        </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="35dp"
-            android:background="@drawable/roundedbutton"
-            android:text="@string/login"
-            android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:onClick="redirectToOtp"
-            android:textStyle="bold" />
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mobileNumberLogin"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/roundedbutton"
+                android:onClick="redirectToOtp"
+                android:text="@string/login"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/progressbarcutomization">
+
+                <ProgressBar
+                    android:id="@+id/progressBarLogin"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:clickable="false"
+                    android:indeterminateTint="@color/colorPrimary"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"

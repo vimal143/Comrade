@@ -11,6 +11,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -23,20 +25,21 @@ import com.google.firebase.database.ValueEventListener;
 public class Login extends AppCompatActivity {
     TextInputLayout Mobile;
     String mobileNo;
-    LoadingDialog loadingDialog;
+    ProgressBar progressbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        loadingDialog = new LoadingDialog(Login.this);
         Mobile = findViewById(R.id.mobileNumberLogin);
+        progressbar = findViewById(R.id.progressBarLogin);
     }
 
     public void redirectToRegister(View view) {
         Intent register = new Intent(Login.this, Signup.class);
         startActivity(register);
+
     }
 
     public void redirectToOtp(View view) {
@@ -48,6 +51,7 @@ public class Login extends AppCompatActivity {
         if (!validateMobileNumber()) {
             return;
         }
+        progressbar.setVisibility(View.VISIBLE);
 
         String enteredNo = Mobile.getEditText().getText().toString().trim();
         mobileNo = "+91" + enteredNo;
@@ -61,6 +65,7 @@ public class Login extends AppCompatActivity {
                     otp.putExtra("flag", "Login");
                     startActivity(otp);
                 } else {
+                    progressbar.setVisibility(View.GONE);
                     Toast.makeText(Login.this, "User Does not Exist", Toast.LENGTH_SHORT).show();
 
                 }
@@ -68,6 +73,7 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressbar.setVisibility(View.GONE);
                 Toast.makeText(Login.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 
             }

@@ -32,6 +32,9 @@ import org.w3c.dom.Text;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Vimal.Pandey
+ */
 public class otpVerification extends AppCompatActivity {
     String checkFlag, Name, Mobile, Gender, MSG;
     PinView pinfromUser;

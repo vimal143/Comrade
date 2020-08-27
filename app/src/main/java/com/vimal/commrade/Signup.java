@@ -28,7 +28,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class Signup extends AppCompatActivity {
-    ProgressBar progressBar;
+    ProgressBar progressBarSignup;
     TextInputLayout Name, Mobile;
     RadioGroup radioGroup;
     RadioButton selection;
@@ -44,7 +44,7 @@ public class Signup extends AppCompatActivity {
         Name = findViewById(R.id.fullName);
         Mobile = findViewById(R.id.MobileNumber);
         radioGroup = findViewById(R.id.grp_radio);
-        progressBar = findViewById(R.id.progressBarSignup);
+        progressBarSignup = findViewById(R.id.progressBarSignup);
 
     }
 
@@ -61,6 +61,7 @@ public class Signup extends AppCompatActivity {
         if (!validatefullName() && !validateMobileNumber()) {
             return;
         }
+        progressBarSignup.setVisibility(View.VISIBLE);
         FullName = Name.getEditText().getText().toString();
         String enteredNo = Mobile.getEditText().getText().toString().trim();
         mobileNo = "+91" + enteredNo;
@@ -73,6 +74,7 @@ public class Signup extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
+                    progressBarSignup.setVisibility(View.GONE);
                     Toast.makeText(Signup.this, "User Already Exist", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent otp = new Intent(Signup.this, otpVerification.class);
@@ -86,6 +88,7 @@ public class Signup extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                progressBarSignup.setVisibility(View.GONE);
                 Toast.makeText(Signup.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
