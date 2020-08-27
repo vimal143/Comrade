@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradientbg"
     android:padding="10dp"
+    android:scrollbars="none"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -92,6 +93,7 @@
                 android:layout_width="160dp"
                 android:layout_height="190dp"
                 app:cardElevation="8dp"
+                android:onClick="addUserCard"
                 app:cardBackgroundColor="#F44336"
                 app:cardCornerRadius="10dp">
 
@@ -150,6 +152,7 @@
                 android:layout_height="190dp"
                 android:layout_margin="10dp"
                 app:cardElevation="8dp"
+                android:onClick="locationbtn"
                 app:cardBackgroundColor="#F44336"
                 app:cardCornerRadius="10dp">
 
