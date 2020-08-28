@@ -13,21 +13,23 @@ import java.util.ArrayList;
 
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.MyViewHolder> {
     Context context;
-    ArrayList id,nameofMember,relationwithUser,mobileofMember;
-    RecycleViewAdapter(Context context,ArrayList id,ArrayList nameofMember,ArrayList relationwithUser,ArrayList mobileofMember){
-        this.context=context;
-        this.id=id;
-        this.nameofMember=nameofMember;
-        this.relationwithUser=relationwithUser;
-        this.mobileofMember=mobileofMember;
+    ArrayList id, nameofMember, relationwithUser, mobileofMember;
+
+    RecycleViewAdapter(Context context, ArrayList id, ArrayList nameofMember, ArrayList relationwithUser, ArrayList mobileofMember) {
+        this.context = context;
+        this.id = id;
+        this.nameofMember = nameofMember;
+        this.relationwithUser = relationwithUser;
+        this.mobileofMember = mobileofMember;
 
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater=LayoutInflater.from(context);
-        View view=inflater.inflate(R.layout.member_row,parent,false);
-        return  new MyViewHolder(view);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.member_row, parent, false);
+        return new MyViewHolder(view);
 
     }
 
@@ -47,12 +49,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecycleViewAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView Id,Name,Mobile;
+        TextView Id, Name, Mobile;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            Id=itemView.findViewById(R.id.member_id);
-            Name=itemView.findViewById(R.id.textViewName);
-            Mobile=itemView.findViewById(R.id.textViewMobile);
+            Id = itemView.findViewById(R.id.member_id);
+            Name = itemView.findViewById(R.id.textViewName);
+            Mobile = itemView.findViewById(R.id.textViewMobile);
 
         }
     }

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Splash_Screen"
     android:background="@drawable/gradientbg"
+    tools:context=".Splash_Screen"
 
     >
 
@@ -51,9 +51,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/griffy"
         android:text="Your Outdoor Companion"
+        android:textColor="#F4F1F0"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#F4F1F0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.926"

@@ -24,7 +24,7 @@ public class AddMember extends AppCompatActivity {
     FloatingActionButton actionButton;
 
     DatabaseHandler database;
-    ArrayList<String> name,relation,contact,id;
+    ArrayList<String> name, relation, contact, id;
     RecycleViewAdapter recycleViewAdapter;
 
 
@@ -32,35 +32,35 @@ public class AddMember extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_member);
-        recyclerView=findViewById(R.id.recycleviewMemberadd);
-        actionButton=findViewById(R.id.addMemberBtn);
+        recyclerView = findViewById(R.id.recycleviewMemberadd);
+        actionButton = findViewById(R.id.addMemberBtn);
         actionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(AddMember.this,MemberInput.class);
+                Intent intent = new Intent(AddMember.this, MemberInput.class);
                 startActivity(intent);
             }
         });
 
-        database=new DatabaseHandler(AddMember.this);
-        name=new ArrayList<>();
-        id=new ArrayList<>();
-        relation=new ArrayList<>();
-        contact=new ArrayList<>();
+        database = new DatabaseHandler(AddMember.this);
+        name = new ArrayList<>();
+        id = new ArrayList<>();
+        relation = new ArrayList<>();
+        contact = new ArrayList<>();
         displayMember();
 
-        recycleViewAdapter =new RecycleViewAdapter(AddMember.this,id,name,relation,contact);
+        recycleViewAdapter = new RecycleViewAdapter(AddMember.this, id, name, relation, contact);
         recyclerView.setAdapter(recycleViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(AddMember.this));
 
     }
-    void displayMember(){
-        Cursor cursor=database.readData();
-        if(cursor.getCount()==0){
+
+    void displayMember() {
+        Cursor cursor = database.readData();
+        if (cursor.getCount() == 0) {
             Toast.makeText(this, "No Member Added", Toast.LENGTH_SHORT).show();
-        }
-        else{
-            while(cursor.moveToNext()){
+        } else {
+            while (cursor.moveToNext()) {
                 id.add(cursor.getString(0));
                 name.add(cursor.getString(1));
                 relation.add(cursor.getString(2));

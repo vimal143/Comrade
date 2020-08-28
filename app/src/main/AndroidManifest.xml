@@ -3,8 +3,8 @@
     package="com.vimal.commrade">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -17,9 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MemberInput"></activity>
-        <activity android:name=".AddMember" />
-        <activity android:name=".otpVerification" />
+        <activity android:name=".SafetyTipsTOI"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".MemberInput"
+            android:label="Comrade"/>
+        <activity android:name=".AddMember"
+            android:label="Comrade"/>
+        <activity android:name=".otpVerification"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Login"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -35,7 +40,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="Comrade">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

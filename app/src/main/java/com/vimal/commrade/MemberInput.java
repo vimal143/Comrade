@@ -10,33 +10,35 @@ import android.view.View;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MemberInput extends AppCompatActivity {
-    TextInputLayout memberName,memberRelation,memberMobile;
-    String name,relation,mobile;
+    TextInputLayout memberName, memberRelation, memberMobile;
+    String name, relation, mobile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_input);
-        memberName=findViewById(R.id.fullNameMember);
-        memberRelation=findViewById(R.id.relationship);
-        memberMobile=findViewById(R.id.MobileNumberFamily);
+        memberName = findViewById(R.id.fullNameMember);
+        memberRelation = findViewById(R.id.relationship);
+        memberMobile = findViewById(R.id.MobileNumberFamily);
 
 
     }
-    public void memberAdded(View view){
+
+    public void memberAdded(View view) {
         if (!validatefullName() && !validateMobileNumber()) {
             return;
         }
-        name=memberName.getEditText().getText().toString();
-        relation=memberRelation.getEditText().getText().toString();
-        mobile=memberMobile.getEditText().getText().toString();
+        name = memberName.getEditText().getText().toString();
+        relation = memberRelation.getEditText().getText().toString();
+        mobile = memberMobile.getEditText().getText().toString();
 //        Log.d("checkMember", "memberAdded: "+name);
-        DatabaseHandler databaseHandler=new DatabaseHandler(MemberInput.this);
-        databaseHandler.addFamilyMember(name,relation,mobile);
-        Intent i=new Intent(MemberInput.this,AddMember.class);
+        DatabaseHandler databaseHandler = new DatabaseHandler(MemberInput.this);
+        databaseHandler.addFamilyMember(name, relation, mobile);
+        Intent i = new Intent(MemberInput.this, AddMember.class);
         startActivity(i);
         finish();
     }
+
     private boolean validatefullName() {
         String fullName = memberName.getEditText().getText().toString().trim();
         if (fullName.isEmpty()) {
