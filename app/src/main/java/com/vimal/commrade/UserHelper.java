@@ -1,8 +1,12 @@
 package com.vimal.commrade;
 
 public class UserHelper {
-    String Name,Mobile,Gender;
-    public UserHelper(){};
+    String Name, Mobile, Gender;
+
+    public UserHelper() {
+    }
+
+    ;
 
     public UserHelper(String name, String mobile, String gender) {
         Name = name;

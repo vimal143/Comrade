@@ -31,18 +31,17 @@ public class Splash_Screen extends AppCompatActivity {
                 }
             };
             worker.schedule(runnable, SPLASH_SCREEN, TimeUnit.SECONDS);
-        }
-        else{
+        } else {
             Runnable runnable = new Runnable() {
                 public void run() {
-                    Intent intent=new Intent(Splash_Screen.this,Signup.class);
+                    Intent intent = new Intent(Splash_Screen.this, Signup.class);
                     startActivity(intent);
                     finish();
                 }
             };
-            worker.schedule(runnable,SPLASH_SCREEN, TimeUnit.SECONDS);
+            worker.schedule(runnable, SPLASH_SCREEN, TimeUnit.SECONDS);
         }
-        }
+    }
 
 
 }

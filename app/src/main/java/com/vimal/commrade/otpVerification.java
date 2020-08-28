@@ -55,7 +55,7 @@ public class otpVerification extends AppCompatActivity {
         Name = intent.getStringExtra("name");
         Mobile = intent.getStringExtra("mobile");
         Gender = intent.getStringExtra("gender");
-        MSG = "Enter Otp Sent to" + Mobile;
+        MSG = "Enter Otp Sent to " + " " + Mobile;
         editText.setText(MSG);
 
         sendVerifcationCodeToUser(Mobile);
